@@ -33,7 +33,7 @@ function getHumanChoice(humanChoice) {
 
 // Play five rounds
 
-for (var roundNumber = 0; roundNumber < 5; roundNumber++) {
+for (var roundNumber = 0; roundNumber < 5;) {
 
 // Get Choices
 
@@ -45,20 +45,22 @@ let computerSelection = getComputerChoice();
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         console.log("human choice, computer choice: " + humanChoice + ", " +computerChoice)
-        result = "tie";
+        result = "Tie!";
     } else if ((humanChoice === "rock" && computerChoice === "scissors") |
                 (humanChoice === "scissors" && computerChoice === "paper") |
                 (humanChoice === "paper" && computerChoice === "rock")) {
                     console.log("human choice, computer choice: " + humanChoice + ", " +computerChoice);
                     humanScore++;
-                    result = "win";
+                    roundNumber++;
+                    result = "Win!";
     } else {
         console.log("human choice, computer choice: " + humanChoice + ", " +computerChoice);
         computerScore++;
-        result = "lost";
+        roundNumber++;
+        result = "Lost!";
     }
 
-    console.log(result + " - Computer: " + computerScore + " points. Human has: " + humanScore + " points.");
+    console.log("Round " + roundNumber + ": " + result + " - Computer: " + computerScore + " points. Human has: " + humanScore + " points.");
 }
 
 
